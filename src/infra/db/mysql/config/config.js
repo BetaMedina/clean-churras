@@ -1,4 +1,4 @@
-const config = {
+module.exports = {
   dev: {
     dialect: 'mysql',
     host: 'localhost',
@@ -24,4 +24,3 @@ const config = {
     }
   }
 }
-module.exports = config

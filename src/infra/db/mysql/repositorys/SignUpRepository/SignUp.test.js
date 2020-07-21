@@ -1,18 +1,21 @@
 
-const Users = require('../../models/User.model')
+const User = require('../../models/User.model')
 const { SignUpRepository } = require('./SignUp')
+const helper = require('../../helpers/mysql.helper')
+
+require('../../models')
 
 const makeSut = () => {
   return new SignUpRepository()
 }
 let sut
+
 describe('Account MYSQL Repository', () => {
-  // afterAll(async () => {
-  //   Users.truncate()
-  // })
+  afterAll(async () => {
+    helper.mysqlTruncate(User)
+  })
 
   beforeEach(async () => {
-    // Users.truncate()
     sut = makeSut()
   })
 

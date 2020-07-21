@@ -1,7 +1,5 @@
 // const { MongoHelper } = require('../infra/db/mongo/helpers/mongo.helper')
 
-require('../infra/db/mysql/models/index')
-
 const env = require('./config/env')
 const app = require('./config/app')
 // MongoHelper.connect(env.mongoUrl).then(async () => {

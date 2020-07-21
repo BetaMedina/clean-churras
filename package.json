@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "migrate": "set NODE_ENV=dev && sequelize-cli db:migrate",
     "test": "jest --passWithNoTests ",
-    "test:integration": " set NODE_ENV=tests && jest -c jest.integration.config.js",
+    "test:integration": " set NODE_ENV=tests && jest -c jest.integration.config.js --forceExit",
     "dev": " set NODE_ENV=dev && nodemon src/main/server.js"
   },
   "keywords": [],
@@ -23,7 +24,8 @@
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "lint-staged": "^10.2.11",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0"
   },
   "dependencies": {
     "express": "^4.17.1",

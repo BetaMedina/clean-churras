@@ -1,4 +1,6 @@
 const express = require('express')
+require('../../infra/db/mysql/models/index')
+
 const Middlewares = require('./middlewares')
 const SetupRoutes = require('./routes')
 

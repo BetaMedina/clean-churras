@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const dbConfig = require('../config/config')[process.env.NODE_ENV.trim()]
+const dbConfig = require('../config')
 
 const User = require('./User.model')
 

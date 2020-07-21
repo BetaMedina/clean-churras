@@ -1,6 +1,6 @@
 const { SignUpController } = require('../../presentation/controllers/signUp/signUp')
 const { SignUp } = require('../../usecases/signUp')
-const { SignUpRepository } = require('../../infra/db/mongo/signUpRepository/SignUp')
+const { SignUpRepository } = require('../../infra/db/mysql/repositorys/SignUpRepository/SignUp')
 const { BcryptAdapter } = require('../../infra/criptography/bcrypt-adapter')
 
 const makeSignUpController = () => {

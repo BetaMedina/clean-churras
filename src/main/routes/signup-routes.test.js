@@ -1,17 +1,12 @@
-const { MongoHelper } = require('../../infra/db/mongo/helpers/mongo.helper')
-const Users = require('../../infra/db/mysql/models/User-model')
-
+const User = require('../../infra/db/mysql/models/User.model')
+require('../../infra/db/mysql/models')
 const app = require('../config/app')
 
 const request = require('supertest')
 
 describe('SignUp Routes', () => {
   afterAll(async () => {
-    Users.truncate()
-  })
-
-  beforeEach(async () => {
-    Users.truncate()
+    User.truncate()
   })
 
   test('Should return an account on success', async () => {
