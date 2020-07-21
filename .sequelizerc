@@ -1,0 +1,7 @@
+const{resolve} = require('path')
+
+module.exports = {
+  'config':resolve(__dirname,'src','infra','db','mysql','config','config.js),
+  'model-path': resolve(__dirname,'src','infra','db','mysql','models'),
+  'migrations-path': resolve(__dirname,'src','infra','db','mysql','migrations')
+}
