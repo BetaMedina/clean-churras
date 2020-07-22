@@ -1,5 +1,7 @@
 const { MissingParamError, UnauthorizedError } = require('../../errors')
-const { Login } = require('./logIn')
+const unauthorized = require('../../errors/unauthorized')
+const { serverError } = require('../../helpers/httpHelper')
+const { LoginController } = require('./logIn')
 
 const makeSut = () => {
   class AuthUseCaseSut {
@@ -8,7 +10,7 @@ const makeSut = () => {
     }
   }
   const authUseCaseSut = new AuthUseCaseSut()
-  const loginSut = new Login(authUseCaseSut)
+  const loginSut = new LoginController(authUseCaseSut)
 
   return {
     authUseCaseSut,
@@ -56,8 +58,8 @@ describe('LogIn - Test', () => {
     }
     
     jest.spyOn(authSut, 'handle').mockReturnValueOnce(new Promise((resolve, reject) => reject(new UnauthorizedError())))
-
-    await expect(sut.handle(payload)).rejects.toThrow()
+    const httpResponse = await sut.handle(payload)
+    await expect(httpResponse.statusCode).toEqual(500)
   })
 
   it('Should be return new userToken', async () => {

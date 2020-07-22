@@ -1,6 +1,6 @@
 const { JwtAdapter } = require('./jwt-adapter')
 const jwt = require('jsonwebtoken')
-
+const { ENUM } = require('./enum/jwtEnum')
 jest.mock('jsonwebtoken', () => ({
   async sign () {
     return 'any_token'
@@ -12,7 +12,7 @@ jest.mock('jsonwebtoken', () => ({
 }))
 
 const makeSut = () => {
-  return new JwtAdapter('secret')
+  return new JwtAdapter()
 }
 
 describe('Jwt Adapter', () => {
@@ -20,8 +20,8 @@ describe('Jwt Adapter', () => {
     test('Should call sign with correct values', async () => {
       const sut = makeSut()
       const signSpy = jest.spyOn(jwt, 'sign')
-      await sut.encrypt('any_id')
-      expect(signSpy).toHaveBeenCalledWith({ id: 'any_id' }, 'secret')
+      await sut.encrypt(1)
+      expect(signSpy).toHaveBeenCalledWith({ id: 1 }, ENUM.SALTKEY, { expiresIn: ENUM.EXPIRES })
     })
 
     test('Should return a token on sign success', async () => {
@@ -43,7 +43,7 @@ describe('Jwt Adapter', () => {
       const sut = makeSut()
       const verifySpy = jest.spyOn(jwt, 'verify')
       await sut.decrypt('any_token')
-      expect(verifySpy).toHaveBeenCalledWith('any_token', 'secret')
+      expect(verifySpy).toHaveBeenCalledWith('any_token', ENUM.SALTKEY)
     })
 
     test('Should return a value on verify success', async () => {

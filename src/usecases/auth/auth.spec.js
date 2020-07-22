@@ -59,7 +59,7 @@ describe('Auth - Use Case', () => {
     await expect(sut.handle('validMail@gmail.com', 'anyPassword')).rejects.toThrow()
   })
   it('Should be return a new token', async () => {
-    const useCaseResponse = await sut.handle('validMail@gmail.com', 'hashPass')
+    const useCaseResponse = await sut.handle('hashPass', 'validMail@gmail.com')
     await expect(useCaseResponse).toBe('any_string_token')
   })
 })

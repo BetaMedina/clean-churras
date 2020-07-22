@@ -13,8 +13,6 @@ class LoginController {
     if (error) {
       return badRequest(new MissingParamError(error))
     } 
-    console.log(error)
-    console.log('teste')
     try {
       const { password, email } = httpRequest.body
       const userAuthToken = await this.authUseCase.handle(password, email)
