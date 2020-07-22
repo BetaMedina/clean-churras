@@ -9,12 +9,7 @@
     "test:integration": " set NODE_ENV=tests && jest -c jest.integration.config.js --forceExit",
     "dev": " set NODE_ENV=dev && nodemon src/main/server.js"
   },
-    "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run test"
-    }
-  },
+   
   "keywords": [],
   "author": "",
   "license": "ISC",
