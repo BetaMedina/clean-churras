@@ -77,7 +77,7 @@ describe('SignUp - Test', () => {
     await expect(httpResponse.statusCode).toBe(400)
     await expect(httpResponse.body).toBeInstanceOf(MissingParamError)
   })
-  it('Should be receveid erro if invalid passwordConfirm have been pass ', async () => {
+  it('Should be receveid success ', async () => {
     const payload = {
       body: {
         name: 'validName',
@@ -89,13 +89,12 @@ describe('SignUp - Test', () => {
     const httpResponse = await sut.handle(payload)
     await expect(httpResponse.statusCode).toBe(200)
     await expect(httpResponse.body).toEqual({
-      name: 'validName',
       email: 'validmail@mail.com',
-      password: 'validPassword',
-      passwordConfirmation: 'validPassword'
+      name: 'validName',
+      password: 'validPassword'
     })
   })
-  it('Should be receveid erro if invalid passwordConfirm have been pass ', async () => {
+  it('Should be throw new error ', async () => {
     const payload = {
       body: {
         name: 'validName',

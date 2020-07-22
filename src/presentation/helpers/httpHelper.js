@@ -1,4 +1,5 @@
 const { ServerError } = require('../errors')
+const { UnauthorizedError } = require('../errors')
 
 const badRequest = (error) => ({
   statusCode: 400,
@@ -12,5 +13,10 @@ const serverError = () => ({
   statusCode: 500,
   body: new ServerError()
 })
-
-module.exports = { badRequest, success, serverError }
+const unauthorizedError = () => ({
+  statusCode: 401,
+  body: {
+    error: new UnauthorizedError()
+  }
+})
+module.exports = { badRequest, success, serverError, unauthorizedError }

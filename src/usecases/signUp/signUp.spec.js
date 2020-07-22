@@ -1,13 +1,19 @@
 const { SignUp } = require('./signUp')
-
 const makeSut = () => {
   class SignUpUseCaseSut {
     create (payload) {
       return { id: 'validId', ...payload }
     }
   }
+  class BcryptCaseSut {
+    encrypt (string) {
+      return string
+    }
+  }
+  
   const signUpRepoSut = new SignUpUseCaseSut()
-  const signUpSut = new SignUp(signUpRepoSut)
+  const bcryptSut = new BcryptCaseSut()
+  const signUpSut = new SignUp(signUpRepoSut, bcryptSut)
   
   return {
     signUpRepoSut,

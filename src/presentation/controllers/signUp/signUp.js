@@ -14,9 +14,10 @@ class SignUpController {
         return badRequest(new MissingParamError(error))
       }
       const { name, email, password } = httpRequest.body
-      const user = new User(name, email, password)
+      const user = new User(email, name, password)
       
       const registerSignUp = await this.signUpUseCase.createNewSignUp(user)
+      console.log(registerSignUp)
       return success(registerSignUp) 
     } catch (err) {
       console.error(err)

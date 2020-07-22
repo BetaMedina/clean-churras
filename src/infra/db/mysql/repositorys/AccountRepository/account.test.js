@@ -1,16 +1,16 @@
 
 const User = require('../../models/User.model')
-const { SignUpRepository } = require('./SignUp')
+const { AccountRepository } = require('./Account')
 const helper = require('../../helpers/mysql.helper')
 
 require('../../models')
 
 const makeSut = () => {
-  return new SignUpRepository()
+  return new AccountRepository()
 }
 let sut
 
-describe('SignUp MYSQL Repository', () => {
+describe('Account MYSQL Repository', () => {
   afterAll(async () => {
     helper.mysqlTruncate(User)
   })
@@ -20,15 +20,18 @@ describe('SignUp MYSQL Repository', () => {
   })
 
   it('Should return an account on success', async () => {
-    const account = await sut.create({
+    await User.create({
       name: 'validName',
       email: 'validMail@mail.com',
       password: 'hashPass'
     })
+
+    const account = await sut.findUserByMail('validMail@mail.com')
+
     expect(account).toBeTruthy()
     expect(account.id).toBeTruthy()
     expect(account.name).toBe('validName')
     expect(account.email).toBe('validMail@mail.com')
-    expect(account.password).toBe('hashPass')
+    expect(account.password).toBeTruthy()
   })
 })
