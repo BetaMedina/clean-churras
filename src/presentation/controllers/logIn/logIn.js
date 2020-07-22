@@ -1,4 +1,4 @@
-const { LoginValidation } = require('../../../validation/yup/loginValidation')
+const { LoginValidation } = require('../../../validation/index')
 const { MissingParamError } = require('../../errors')
 const { serverError } = require('../../helpers/httpHelper')
 const { badRequest, success } = require('../../helpers/httpHelper')
