@@ -1,4 +1,4 @@
-const { EventController } = require('../../presentation/controllers/event/event')
+const { EventController } = require('../../presentation/controllers/event')
 const { Event } = require('../../usecases/event/event')
 const { EventRepository } = require('../../infra/db/mysql/repositorys/EventRepository/Event')
 

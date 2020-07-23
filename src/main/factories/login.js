@@ -1,4 +1,4 @@
-const { LoginController } = require('../../presentation/controllers/logIn/logIn')
+const { LoginController } = require('../../presentation/controllers/logIn')
 const { Auth } = require('../../usecases/auth/auth')
 
 const { AccountRepository } = require('../../infra/db/mysql/repositorys/AccountRepository/Account')
