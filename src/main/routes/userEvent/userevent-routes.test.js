@@ -1,11 +1,11 @@
-require('../../infra/db/mysql/models')
-const User = require('../../infra/db/mysql/models/User.model')
-const Event = require('../../infra/db/mysql/models/Event.model')
-const UserEvent = require('../../infra/db/mysql/models/UserEvent.model')
-const app = require('../config/app')
+require('../../../infra/db/mysql/models')
+const User = require('../../../infra/db/mysql/models/User.model')
+const Event = require('../../../infra/db/mysql/models/Event.model')
+const UserEvent = require('../../../infra/db/mysql/models/UserEvent.model')
+const app = require('../../config/app')
 
 const request = require('supertest')
-const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
+const mysqlHelper = require('../../../infra/db/mysql/helpers/mysql.helper')
 
 let user
 let event

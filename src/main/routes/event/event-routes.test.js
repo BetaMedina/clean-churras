@@ -1,11 +1,11 @@
-const Event = require('../../infra/db/mysql/models/Event.model')
+const Event = require('../../../infra/db/mysql/models/Event.model')
 
-require('../../infra/db/mysql/models')
+require('../../../infra/db/mysql/models')
 
-const app = require('../config/app')
+const app = require('../../config/app')
 
 const request = require('supertest')
-const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
+const mysqlHelper = require('../../../infra/db/mysql/helpers/mysql.helper')
 
 describe('Event Routes', () => {
   afterAll(async () => {

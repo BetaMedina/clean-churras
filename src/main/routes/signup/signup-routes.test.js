@@ -1,9 +1,9 @@
-const User = require('../../infra/db/mysql/models/User.model')
-require('../../infra/db/mysql/models')
-const app = require('../config/app')
+const User = require('../../../infra/db/mysql/models/User.model')
+require('../../../infra/db/mysql/models')
+const app = require('../../config/app')
 
 const request = require('supertest')
-const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
+const mysqlHelper = require('../../../infra/db/mysql/helpers/mysql.helper')
 
 describe('SignUp Routes', () => {
   afterEach(async () => {

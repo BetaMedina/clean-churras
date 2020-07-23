@@ -1,11 +1,11 @@
-const User = require('../../infra/db/mysql/models/User.model')
-const { BcryptAdapter } = require('../../infra/criptography/bcrypt/bcrypt-adapter')
+const User = require('../../../infra/db/mysql/models/User.model')
+const { BcryptAdapter } = require('../../../infra/criptography/bcrypt/bcrypt-adapter')
 
-require('../../infra/db/mysql/models')
-const app = require('../config/app')
+require('../../../infra/db/mysql/models')
+const app = require('../../config/app')
 
 const request = require('supertest')
-const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
+const mysqlHelper = require('../../../infra/db/mysql/helpers/mysql.helper')
 
 describe('SignUp Routes', () => {
   beforeEach(async () => {
