@@ -6,9 +6,6 @@ const request = require('supertest')
 const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
 
 describe('SignUp Routes', () => {
-  beforeEach(async () => {
-    await mysqlHelper.mysqlTruncate(User)
-  })
   afterEach(async () => {
     await mysqlHelper.mysqlTruncate(User)
   })

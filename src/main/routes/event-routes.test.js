@@ -8,9 +8,10 @@ const request = require('supertest')
 const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
 
 describe('Event Routes', () => {
-  beforeEach(async () => {
+  afterAll(async () => {
     await mysqlHelper.mysqlTruncate(Event)
   })
+  
   test('Should return an event on success', async () => {
     await request(app)
       .post('/api/event')

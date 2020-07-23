@@ -9,7 +9,6 @@ const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
 
 describe('SignUp Routes', () => {
   beforeEach(async () => {
-    await mysqlHelper.mysqlTruncate(User)
     const bcrypt = new BcryptAdapter()
 
     const password = await bcrypt.encrypt('senhaLouca')
@@ -20,7 +19,10 @@ describe('SignUp Routes', () => {
       name: 'medina'
     })
   })
-
+  afterEach(async () => {
+    await mysqlHelper.mysqlTruncate(User)
+  })
+  
   test('Should return an account on success', async () => {
     await request(app)
       .post('/api/login')

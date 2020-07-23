@@ -4,6 +4,7 @@ const Event = require('../../models/Event.model')
 const UserEvent = require('../../models/UserEvent.model')
 const { UserEventRepository } = require('./UserEvent')
 const helper = require('../../helpers/mysql.helper')
+const mysqlHelper = require('../../helpers/mysql.helper')
 
 require('../../models')
 
@@ -16,15 +17,12 @@ let event
 
 describe('UserEvent MYSQL Repository', () => {
   beforeEach(async () => {
-    helper.mysqlTruncate(UserEvent)
-    helper.mysqlTruncate(User)
-    helper.mysqlTruncate(Event)
-    
+    await mysqlHelper.mysqlTruncate(User)
     sut = makeSut()
 
     user = await User.create({
       name: 'validName',
-      email: 'userEvent@mail.com',
+      email: `${new Date().getTime}@mail.com`,
       password: 'hashPass'
     })
     event = await Event.create({
@@ -35,7 +33,7 @@ describe('UserEvent MYSQL Repository', () => {
       suggested_value: '99.9'
     })
   })
-
+ 
   it('Should return an account on success', async () => {
     const userEvent = await sut.create({
       id_user: user.id,

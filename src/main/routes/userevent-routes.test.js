@@ -12,13 +12,11 @@ let event
 
 describe('SignUp Routes', () => {
   beforeEach(async () => {
-    await mysqlHelper.mysqlTruncate(UserEvent)
     await mysqlHelper.mysqlTruncate(User)
-    await mysqlHelper.mysqlTruncate(Event)
 
     user = await User.create({
       name: 'validName',
-      email: 'userEvent@mail.com',
+      email: `${new Date().getTime}@mail.com`,
       password: 'hashPass'
     })
     event = await Event.create({
@@ -30,12 +28,12 @@ describe('SignUp Routes', () => {
     })
   })
   afterEach(async () => {
-    await mysqlHelper.mysqlTruncate(UserEvent)
     await mysqlHelper.mysqlTruncate(User)
     await mysqlHelper.mysqlTruncate(Event)
-  })
 
-  test('Should return an account on success', async () => {
+    await mysqlHelper.mysqlTruncate(UserEvent)
+  })
+  it('Should return an account on success', async () => {
     await request(app)
       .post('/user/event')
       .send({
@@ -45,7 +43,7 @@ describe('SignUp Routes', () => {
       })
       .expect(200)
   })
-  test('Should return  success', async () => {
+  it('Should return  success', async () => {
     await request(app)
       .delete(`/user/event/${user.id}/${event.id}`)
       .expect(200)

@@ -7,7 +7,7 @@
     "migrate": "set NODE_ENV=dev && sequelize-cli db:migrate",
     "test": "jest --passWithNoTests  ",
     "test:deploy": "jest --passWithNoTests --silent  ",
-    "test:integration": " set NODE_ENV=tests && sequelize-cli db:migrate && jest -c jest.integration.config.js --forceExit",
+    "test:integration": " set NODE_ENV=tests && sequelize-cli db:migrate && jest -c jest.integration.config.js --runInBand --forceExit ",
     "dev": " set NODE_ENV=dev && nodemon src/main/server.js"
   },
    
