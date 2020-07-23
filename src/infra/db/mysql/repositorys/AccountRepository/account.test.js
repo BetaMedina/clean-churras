@@ -14,6 +14,9 @@ describe('Account MYSQL Repository', () => {
   afterAll(async () => {
     helper.mysqlTruncate(User)
   })
+  beforeEach(async () => {
+    helper.mysqlTruncate(User)
+  })
 
   beforeEach(async () => {
     sut = makeSut()

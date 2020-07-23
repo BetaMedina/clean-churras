@@ -2,8 +2,10 @@ const Sequelize = require('sequelize')
 const dbConfig = require('../config')
 
 const User = require('./User.model')
+const Event = require('./Event.model')
+const UserEvent = require('./UserEvent.model')
 
-const models = [User]
+const models = [User, Event, UserEvent]
 
 const database = new Sequelize(dbConfig)
 

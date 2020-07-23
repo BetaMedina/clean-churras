@@ -1,19 +1,16 @@
 const Yup = require('yup')
 
-const eventValidation = (Payload) => {
+const userEventValidation = (Payload) => {
   const schema = Yup.object().shape({
-    name: Yup
-      .string()
+    idUser: Yup
+      .number()
+      .integer()
       .required(),
-    description: Yup
-      .string(),
-    date: Yup
-      .date()
+    idEvent: Yup
+      .number()
+      .integer()
       .required(),
-    suggestedValue:
-    Yup
-      .string(),
-    obs: Yup
+    paymentValue: Yup
       .string()
   })
   return schema.validate(Payload, { abortEarly: true, stripUnknown: true }).then(res => {
@@ -22,4 +19,4 @@ const eventValidation = (Payload) => {
     return err.errors.join()
   })
 }
-module.exports = { EventValidation: eventValidation }
+module.exports = { UserEventValidation: userEventValidation }
