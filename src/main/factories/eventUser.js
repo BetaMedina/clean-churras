@@ -1,5 +1,5 @@
 const { UserEventController } = require('../../presentation/controllers/userEvent')
-const { CreateUserEvent } = require('../../usecases/userEvent/createUserEvent')
+const { CreateUserEvent } = require('../../usecases/userEvent')
 const { UserEventRepository } = require('../../infra/db/mysql/repositorys/UserEventRepository/UserEvent')
 
 const makeUserEventController = () => {
