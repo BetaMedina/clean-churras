@@ -1,5 +1,5 @@
 module.exports = {
   mysqlTruncate (model) {
-    model.truncate()
+    model.destroy({ truncate: { cascade: true } })
   }
 }

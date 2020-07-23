@@ -5,30 +5,27 @@ require('../../infra/db/mysql/models')
 const app = require('../config/app')
 
 const request = require('supertest')
+const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
 
 describe('SignUp Routes', () => {
   beforeEach(async () => {
-    await User.truncate()
-
+    await mysqlHelper.mysqlTruncate(User)
     const bcrypt = new BcryptAdapter()
+
     const password = await bcrypt.encrypt('senhaLouca')
 
     await User.create({
-      email: 'Medina@mail.com',
+      email: 'validMail2@mail.com',
       password,
       name: 'medina'
     })
-  })
-
-  afterEach(async () => {
-    await User.truncate()
   })
 
   test('Should return an account on success', async () => {
     await request(app)
       .post('/api/login')
       .send({
-        email: 'Medina@mail.com',
+        email: 'validMail2@mail.com',
         password: 'senhaLouca'
       })
       .expect(200)

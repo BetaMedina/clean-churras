@@ -3,20 +3,21 @@ require('../../infra/db/mysql/models')
 const app = require('../config/app')
 
 const request = require('supertest')
+const mysqlHelper = require('../../infra/db/mysql/helpers/mysql.helper')
 
 describe('SignUp Routes', () => {
   beforeEach(async () => {
-    User.truncate()
+    await mysqlHelper.mysqlTruncate(User)
   })
   afterEach(async () => {
-    await User.truncate()
+    await mysqlHelper.mysqlTruncate(User)
   })
 
   test('Should return an account on success', async () => {
     await request(app)
       .post('/api/signup')
       .send({
-        email: 'Medina@mail.com',
+        email: 'validMail@mail.com',
         name: 'Medina',
         password: 'senhaLouca',
         passwordConfirm: 'senhaLouca'

@@ -11,11 +11,8 @@ const makeSut = () => {
 let sut
 
 describe('SignUp MYSQL Repository', () => {
-  afterAll(async () => {
-    helper.mysqlTruncate(User)
-  })
-
   beforeEach(async () => {
+    helper.mysqlTruncate(User)
     sut = makeSut()
   })
 
