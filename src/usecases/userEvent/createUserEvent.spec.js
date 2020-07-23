@@ -46,7 +46,6 @@ describe('UserEvent - UseCase', () => {
       }
     }
     const response = await sut.createNewUserEvent(payload.body)
-    console.log(response)
     expect(response).toEqual({
       id: 'validId',
       idEvent: 1,

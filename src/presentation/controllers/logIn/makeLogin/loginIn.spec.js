@@ -1,6 +1,4 @@
-const { MissingParamError, UnauthorizedError } = require('../../errors')
-const unauthorized = require('../../errors/unauthorized')
-const { serverError } = require('../../helpers/httpHelper')
+const { MissingParamError, UnauthorizedError } = require('../../../errors')
 const { LoginController } = require('./logIn')
 
 const makeSut = () => {

@@ -1,5 +1,5 @@
 const { SignUpController } = require('./signUp')
-const { MissingParamError } = require('../../errors')
+const { MissingParamError } = require('../../../errors')
 
 const makeSut = () => {
   class SignUpUseCaseSut {

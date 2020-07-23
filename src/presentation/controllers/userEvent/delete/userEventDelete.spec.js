@@ -1,21 +1,15 @@
-const { MissingParamError, ServerError } = require('../../errors')
-const { UserEventController } = require('./userEvent')
+const { ServerError } = require('../../../errors')
+const { DeleteUserEventController } = require('./userEventDelete')
 
 const makeSut = () => {
-  class UserEventUseCaseSut {
-    async createNewUserEvent (payload) {
-      return { id: 'any_valid_id', ...payload }
-    }
-  }
   class UserEventDeleteUseCaseSut {
     async deleteUserOnEvent (payload) {
       return true
     }
   }
-  const userEventUseCaseSut = new UserEventUseCaseSut()
   const userEventDeleteUseCaseSut = new UserEventDeleteUseCaseSut()
 
-  const sutUserEvent = new UserEventController(userEventUseCaseSut, userEventDeleteUseCaseSut)
+  const sutUserEvent = new DeleteUserEventController(userEventDeleteUseCaseSut)
   return {
     sutUserEvent,
     userEventDeleteUseCaseSut
@@ -38,7 +32,7 @@ describe('UserEvent - Controller', () => {
       }
     }
     jest.spyOn(userEventUseSut, 'deleteUserOnEvent').mockReturnValueOnce(new Promise((resolve, reject) => reject(new Error())))
-    const httpResponse = await sut.delete(payload)
+    const httpResponse = await sut.handle(payload)
     await expect(httpResponse.statusCode).toBe(500)
     await expect(httpResponse.body).toBeInstanceOf(ServerError)
   })
@@ -49,7 +43,7 @@ describe('UserEvent - Controller', () => {
         idUser: 2
       }
     }
-    const httpResponse = await sut.delete(payload)
+    const httpResponse = await sut.handle(payload)
     await expect(httpResponse.statusCode).toBe(200)
     await expect(httpResponse.body).toEqual({ msg: 'User event deleted successfull ' })
   })

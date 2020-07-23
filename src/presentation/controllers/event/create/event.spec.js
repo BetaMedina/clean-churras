@@ -1,4 +1,4 @@
-const { MissingParamError, ServerError } = require('../../errors')
+const { MissingParamError, ServerError } = require('../../../errors')
 const { EventController } = require('./event')
 
 const makeSut = () => {

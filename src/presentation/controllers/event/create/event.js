@@ -1,7 +1,7 @@
-const { badRequest, success, serverError } = require('../../helpers/httpHelper')
-const { MissingParamError } = require('../../errors')
-const { EventValidation } = require('../../../validation/yup/eventValidation')
-const { Event } = require('../../../domain/event')
+const { badRequest, success, serverError } = require('../../../helpers/httpHelper')
+const { MissingParamError } = require('../../../errors')
+const { EventValidation } = require('../../../../validation/yup/eventValidation')
+const { Event } = require('../../../../domain/event')
 
 class EventController {
   constructor (EventUseCase) {

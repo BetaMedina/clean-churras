@@ -1,7 +1,8 @@
-const { badRequest, success, serverError } = require('../../helpers/httpHelper')
-const { MissingParamError } = require('../../errors')
-const { SignUpValidation } = require('../../../validation/yup/signInValidation')
-const { User } = require('../../../domain/user')
+const { badRequest, success, serverError } = require('../../../helpers/httpHelper')
+const { MissingParamError } = require('../../../errors')
+const { SignUpValidation } = require('../../../../validation/yup/signInValidation')
+const { User } = require('../../../../domain/user')
+
 class SignUpController {
   constructor (SignUpUseCase) {
     this.signUpUseCase = SignUpUseCase

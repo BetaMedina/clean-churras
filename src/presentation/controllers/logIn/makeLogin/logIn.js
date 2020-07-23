@@ -1,7 +1,7 @@
-const { LoginValidation } = require('../../../validation/index')
-const { MissingParamError } = require('../../errors')
-const { serverError } = require('../../helpers/httpHelper')
-const { badRequest, success } = require('../../helpers/httpHelper')
+const { LoginValidation } = require('../../../../validation/index')
+const { MissingParamError } = require('../../../errors')
+const { serverError } = require('../../../helpers/httpHelper')
+const { badRequest, success } = require('../../../helpers/httpHelper')
 
 class LoginController {
   constructor (AuthUseCase) {

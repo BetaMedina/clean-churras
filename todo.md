@@ -1,7 +1,8 @@
 # Terminar as rotas de user_event
 
-  [ ] Terminar rota de adição 
-  [ ] Terminar rota de deleção
+  [X] Terminar rota de adição 
+  [X] Terminar rota de deleção
+  [ ] Separar o metodo delete e deixar só o handle nos controllers
   [ ] Iniciar  rota de Listagem
   [ ] Verificar rotas de join
 

@@ -1,4 +1,4 @@
-const { MissingParamError, ServerError } = require('../../errors')
+const { MissingParamError, ServerError } = require('../../../errors')
 const { UserEventController } = require('./userEvent')
 
 const makeSut = () => {
@@ -7,15 +7,10 @@ const makeSut = () => {
       return { id: 'any_valid_id', ...payload }
     }
   }
-  class UserEventDeleteUseCaseSut {
-    async deleteUserOnEvent (payload) {
-      return true
-    }
-  }
+ 
   const userEventUseCaseSut = new UserEventUseCaseSut()
-  const userEventDeleteUseCaseSut = new UserEventDeleteUseCaseSut()
 
-  const sutUserEvent = new UserEventController(userEventUseCaseSut, userEventDeleteUseCaseSut)
+  const sutUserEvent = new UserEventController(userEventUseCaseSut)
   return {
     sutUserEvent,
     userEventUseCaseSut
