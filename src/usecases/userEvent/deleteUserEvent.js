@@ -3,7 +3,7 @@ class DeleteUserEvent {
     this.userEventRepository = UserEventRepository
   }
 
-  async deleteUserOnEvent ({ idUser, idEvent }) {
+  async deleteUserOnEvent ({ id_user: idUser, id_event: idEvent }) {
     return this.userEventRepository.destroy({ idUser, idEvent })
   }
 }

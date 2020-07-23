@@ -15,7 +15,7 @@ describe('SignUp Routes', () => {
     const password = await bcrypt.encrypt('senhaLouca')
 
     await User.create({
-      email: 'validMail2@mail.com',
+      email: 'loginMail@mail.com',
       password,
       name: 'medina'
     })
@@ -25,7 +25,7 @@ describe('SignUp Routes', () => {
     await request(app)
       .post('/api/login')
       .send({
-        email: 'validMail2@mail.com',
+        email: 'loginMail@mail.com',
         password: 'senhaLouca'
       })
       .expect(200)
