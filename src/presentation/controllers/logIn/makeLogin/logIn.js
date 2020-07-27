@@ -1,6 +1,6 @@
 const { LoginValidation } = require('../../../../validation/index')
-const { MissingParamError } = require('../../../errors')
-const { serverError } = require('../../../helpers/httpHelper')
+const { MissingParamError, UnauthorizedError } = require('../../../errors')
+const { serverError, unauthorizedError } = require('../../../helpers/httpHelper')
 const { badRequest, success } = require('../../../helpers/httpHelper')
 
 class LoginController {
@@ -21,6 +21,9 @@ class LoginController {
       })
     } catch (err) {
       console.error(err)
+      if (err instanceof UnauthorizedError) {
+        return unauthorizedError()
+      }
       return serverError()
     }
   }

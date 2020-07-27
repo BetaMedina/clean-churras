@@ -12,7 +12,8 @@ class Event extends Model {
         obs: DataTypes.STRING,
         created_at: DataTypes.DATE,
         updated_at: DataTypes.DATE,
-        with_drink: DataTypes.TINYINT
+        with_drink: DataTypes.TINYINT,
+        number_people: DataTypes.INTEGER
       },
       {
         sequelize,

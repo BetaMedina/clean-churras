@@ -1,6 +1,6 @@
-const { DeleteUserEventController } = require('../../presentation/controllers/userEvent')
-const { DeleteUserEvent } = require('../../usecases/userEvent')
-const { UserEventRepository } = require('../../infra/db/mysql/repositorys/UserEventRepository/UserEvent')
+const { DeleteUserEventController } = require('../../../presentation/controllers/userEvent')
+const { DeleteUserEvent } = require('../../../usecases/userEvent')
+const { UserEventRepository } = require('../../../infra/db/mysql/repositorys/UserEventRepository/UserEvent')
 
 const makeDeleteUserEventController = () => {
   const userEventRepository = new UserEventRepository()

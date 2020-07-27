@@ -8,8 +8,10 @@ const eventValidation = (Payload) => {
     description: Yup
       .string(),
     date: Yup
-      .date()
+      .string()
       .required(),
+    numberPeople: Yup
+      .number(),
     suggestedValue:
     Yup
       .string(),

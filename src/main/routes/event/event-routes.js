@@ -1,6 +1,8 @@
-const { makeEventController } = require('../../factories/event')
+const { makeEventController } = require('../../factories/event/event')
+const { makeListEventController } = require('../../factories/event/listEvent')
 const { adaptRoute } = require('../../adapters/express-route-adapter')
  
 module.exports = (route) => {
   route.post('/event', adaptRoute(makeEventController())('handle'))
+  route.get('/event', adaptRoute(makeListEventController())('handle'))
 }

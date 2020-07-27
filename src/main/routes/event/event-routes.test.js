@@ -24,4 +24,10 @@ describe('Event Routes', () => {
       })
       .expect(200)
   })
+  test('Should return an event on success', async () => {
+    await request(app)
+      .get('/api/event')
+      .send()
+      .expect(200)
+  })
 })

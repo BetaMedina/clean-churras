@@ -10,12 +10,13 @@ class EventController {
 
   async handle (httpRequest) {
     const error = await EventValidation(httpRequest.body)
+    console.log(error)
     if (error) {
       return badRequest(new MissingParamError(error))
     }
     
-    const { name, description, date, obs, suggestedValue, withDrink } = httpRequest.body
-    const event = new Event({ name, description, date, obs, suggestedValue, withDrink })
+    const { name, description, date, obs, suggestedValue, withDrink, numberPeople } = httpRequest.body
+    const event = new Event({ name, description, date, obs, suggestedValue, withDrink, numberPeople })
 
     try {
       const eventResponse = await this.eventUseCase.createNewEvent(event)

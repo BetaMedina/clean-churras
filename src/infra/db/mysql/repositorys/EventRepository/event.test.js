@@ -39,4 +39,22 @@ describe('Event MYSQL Repository', () => {
     expect(event.obs).toBe('validObs')
     expect(event.suggested_value).toBe('99.9')
   })
+  it('Should return all events', async () => {
+    const date = new Date()
+
+    const event = await sut.list({
+      name: 'validName',
+      description: 'validDescription',
+      date,
+      obs: 'validObs',
+      suggested_value: '99.9'
+    })
+
+    expect(event).toBeTruthy()
+    expect(event[0].id).toBeTruthy()
+    expect(event[0].name).toBe('validName')
+    expect(event[0].description).toBe('validDescription')
+    expect(event[0].obs).toBe('validObs')
+    expect(event[0].suggested_value).toBe(99.9)
+  })
 })

@@ -10,7 +10,6 @@
     "test:integration": " set NODE_ENV=tests && sequelize-cli db:migrate && jest -c jest.integration.config.js --runInBand --forceExit ",
     "dev": " set NODE_ENV=dev && nodemon src/main/server.js"
   },
-   
   "keywords": [],
   "author": "",
   "license": "ISC",

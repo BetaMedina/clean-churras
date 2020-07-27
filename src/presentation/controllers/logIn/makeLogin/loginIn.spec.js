@@ -57,7 +57,7 @@ describe('LogIn - Test', () => {
     
     jest.spyOn(authSut, 'handle').mockReturnValueOnce(new Promise((resolve, reject) => reject(new UnauthorizedError())))
     const httpResponse = await sut.handle(payload)
-    await expect(httpResponse.statusCode).toEqual(500)
+    await expect(httpResponse.statusCode).toEqual(401)
   })
 
   it('Should be return new userToken', async () => {

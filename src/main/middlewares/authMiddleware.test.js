@@ -1,6 +1,6 @@
 const app = require('../config/app')
-const { JwtAdapter } = require('../../infra/criptography/jwt/jwt-adapter')
 const request = require('supertest')
+const { JwtAdapter } = require('../../infra/criptography/jwt/jwt-adapter')
 const { authMiddleware } = require('../middlewares/authMiddleware')
 
 let jwtKey

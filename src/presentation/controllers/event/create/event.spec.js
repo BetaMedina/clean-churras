@@ -32,6 +32,7 @@ describe('Event - Controller', () => {
         date,
         obs: 'validObs',
         suggestedValue: '99.9'
+
       }
     }
     const httpResponse = await sut.handle(payload)
@@ -78,7 +79,9 @@ describe('Event - Controller', () => {
         description: 'validDescription',
         date,
         obs: 'validObs',
-        suggestedValue: '99.9'
+        suggestedValue: '99.9',
+        numberPeople: '9',
+        withDrink: false
       }
     }
     const httpResponse = await sut.handle(payload)
@@ -89,7 +92,10 @@ describe('Event - Controller', () => {
       description: 'validDescription',
       date,
       obs: 'validObs',
-      suggested_value: '99.9'
+      suggested_value: '99.9',
+      number_people: '9',
+      with_drink: false
+
     })
   })
 })
