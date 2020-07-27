@@ -1,0 +1,20 @@
+const { success, serverError } = require('../../../helpers/httpHelper')
+const { UserEvent } = require('../../../../domain/userEvent')
+
+class ListUserEventController {
+  constructor (UserEventListUseCase) {
+    this.userEventListUseCase = UserEventListUseCase
+  }
+
+  async handle (httpRequest) {
+    try {
+      const userEventResponse = await this.userEventListUseCase.listUserEvent()
+      return success(userEventResponse)
+    } catch (err) {
+      console.error(err)
+      return serverError()
+    }
+  }
+}
+
+module.exports = { ListUserEventController }
