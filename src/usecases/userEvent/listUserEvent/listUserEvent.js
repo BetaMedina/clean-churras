@@ -3,8 +3,8 @@ class UserEventList {
     this.userEventRepository = UserEventRepository
   }
 
-  async listUserEvent () {
-    return this.userEventRepository.list()
+  async listUserEvent (eventId) {
+    return this.userEventRepository.list(eventId)
   }
 }
 module.exports = { UserEventList }

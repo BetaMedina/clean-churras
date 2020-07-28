@@ -33,7 +33,7 @@ describe('SignUp Routes', () => {
 
     await mysqlHelper.mysqlTruncate(UserEvent)
   })
-  it('Should return an account on success', async () => {
+  it('Should return an users on event on success', async () => {
     await request(app)
       .post('/user/event')
       .send({
@@ -41,6 +41,11 @@ describe('SignUp Routes', () => {
         idEvent: event.id,
         payment_value: 22
       })
+      .expect(200)
+  })
+  it('Should return an account on success', async () => {
+    await request(app)
+      .get(`/user/event/${event.id}`)
       .expect(200)
   })
   it('Should return  success', async () => {

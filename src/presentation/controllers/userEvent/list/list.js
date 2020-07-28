@@ -8,7 +8,9 @@ class ListUserEventController {
 
   async handle (httpRequest) {
     try {
-      const userEventResponse = await this.userEventListUseCase.listUserEvent()
+      const { id } = httpRequest.params
+      console.log(id)
+      const userEventResponse = await this.userEventListUseCase.listUserEvent(id)
       return success(userEventResponse)
     } catch (err) {
       console.error(err)

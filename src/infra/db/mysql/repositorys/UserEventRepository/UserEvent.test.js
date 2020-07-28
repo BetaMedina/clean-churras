@@ -41,9 +41,12 @@ describe('UserEvent MYSQL Repository', () => {
       payment_value: 50
     })
     expect(userEvent).toBeTruthy()
-    expect(userEvent.id).toBeTruthy()
     expect(userEvent.id_user).toBe(user.id)
     expect(userEvent.id_event).toBe(event.id)
     expect(userEvent.payment_value).toBe(50)
+  })
+  it('Should return a event', async () => {
+    const userEvent = await sut.list(event.id)
+    expect(userEvent).toBeTruthy()
   })
 })

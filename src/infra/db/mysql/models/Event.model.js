@@ -25,9 +25,10 @@ class Event extends Model {
   }
 
   static associate (models) {
-    this.hasMany(models.UserEvent, {
-      foreignKey: 'id_event',
-      as: 'event'
+    this.belongsToMany(models.User, {
+      through: 'UserEvent',
+      as: 'users',
+      foreignKey: 'id_event'
     })
   }
 }

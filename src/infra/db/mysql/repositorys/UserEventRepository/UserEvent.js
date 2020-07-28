@@ -3,14 +3,13 @@ const User = require('../../models/User.model')
 const Event = require('../../models/Event.model')
 
 class UserEventRepository {
-  async read (idEvent) {
-    return UserEvent.findAll({
-      include: [{
-        model: Event,
-        where: {
-          id_event: idEvent
-        }
-      }, { model: User, attributes: ['name', 'email'] }]
+  async list (idEvent) {
+    console.log(idEvent)
+    return Event.findOne({
+      include: { model: User, as: 'users', attributes: ['name', 'email'] },
+      where: {
+        id: idEvent
+      }
     })
   }
 

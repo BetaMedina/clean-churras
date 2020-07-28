@@ -16,5 +16,13 @@ class User extends Model {
     )
     return this
   }
+
+  static associate (models) {
+    this.belongsToMany(models.Event, {
+      through: 'UserEvent',
+      as: 'events',
+      foreignKey: 'id_user'
+    })
+  }
 }
 module.exports = User
