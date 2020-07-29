@@ -7,11 +7,9 @@ class DeleteUserEventController {
   }
 
   async handle (httpRequest) {
-    const { idUser, idEvent } = httpRequest.params
-    const userEvent = new UserEvent({ idUser, idEvent })
-  
+    const { idUsers, idEvent } = httpRequest.body
     try {
-      await this.userDeleteEventUseCase.deleteUserOnEvent(userEvent)
+      await this.userDeleteEventUseCase.deleteUserOnEvent({ idUsers, idEvent })
       return success({ msg: 'User event deleted successfull ' })
     } catch (err) {
       console.error(err)

@@ -6,5 +6,5 @@ const { adaptRoute } = require('../../adapters/express-route-adapter')
 module.exports = (route) => {
   route.post('/user/event', adaptRoute(makeUserEventController())('handle'))
   route.get('/user/event/:id', adaptRoute(makeListUserEventController())('handle'))
-  route.delete('/user/event/:idUser/:idEvent', adaptRoute(makeDeleteUserEventController())('handle'))
+  route.post('/user/events', adaptRoute(makeDeleteUserEventController())('handle'))
 }

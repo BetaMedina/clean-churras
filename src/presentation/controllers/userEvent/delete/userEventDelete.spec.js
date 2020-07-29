@@ -3,7 +3,7 @@ const { DeleteUserEventController } = require('./userEventDelete')
 
 const makeSut = () => {
   class UserEventDeleteUseCaseSut {
-    async deleteUserOnEvent (payload) {
+    async deleteUserOnEvent ({ idUsers, idEvent }) {
       return true
     }
   }
@@ -26,8 +26,8 @@ describe('UserEvent - Controller', () => {
   
   it('Should be return a server error', async () => {
     const payload = {
-      params: {
-        idEvent: 1,
+      body: {
+        idEvents: 1,
         idUser: 2
       }
     }
@@ -38,8 +38,8 @@ describe('UserEvent - Controller', () => {
   })
   it('Should be expect to return a new event Object', async () => {
     const payload = {
-      params: {
-        idEvent: 1,
+      body: {
+        idEvents: 1,
         idUser: 2
       }
     }

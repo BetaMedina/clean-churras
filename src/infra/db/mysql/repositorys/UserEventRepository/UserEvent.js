@@ -6,7 +6,7 @@ class UserEventRepository {
   async list (idEvent) {
     console.log(idEvent)
     return Event.findOne({
-      include: { model: User, as: 'users', attributes: ['name', 'email'] },
+      include: { model: User, as: 'users', attributes: ['id', 'name', 'email'] },
       where: {
         id: idEvent
       }
@@ -17,10 +17,10 @@ class UserEventRepository {
     return UserEvent.create(userEvent)
   }
 
-  async destroy ({ idUser, idEvent }) {
+  async destroy ({ idUsers, idEvent }) {
     return UserEvent.destroy({
       where: {
-        id_user: idUser,
+        id_user: idUsers,
         id_event: idEvent
       } 
     })

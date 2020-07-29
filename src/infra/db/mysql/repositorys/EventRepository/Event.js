@@ -8,6 +8,11 @@ class EventRepository {
   async list () {
     return Event.findAll()
   }
+
+  async read (event) {
+    console.log(event)
+    return Event.findByPk(event)
+  }
 } 
 
 module.exports = { EventRepository }
