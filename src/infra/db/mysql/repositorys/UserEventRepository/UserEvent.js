@@ -4,7 +4,6 @@ const Event = require('../../models/Event.model')
 
 class UserEventRepository {
   async list (idEvent) {
-    console.log(idEvent)
     return Event.findOne({
       include: { model: User, as: 'users', attributes: ['id', 'name', 'email'] },
       where: {

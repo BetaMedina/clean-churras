@@ -10,7 +10,6 @@ class EventController {
 
   async handle (httpRequest) {
     const error = await EventValidation(httpRequest.body)
-    console.log(error)
     if (error) {
       return badRequest(new MissingParamError(error))
     }

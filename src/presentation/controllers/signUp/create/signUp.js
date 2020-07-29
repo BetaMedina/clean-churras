@@ -18,7 +18,6 @@ class SignUpController {
       const user = new User(email, name, password)
       
       const registerSignUp = await this.signUpUseCase.createNewSignUp(user)
-      console.log(registerSignUp)
       return success(registerSignUp) 
     } catch (err) {
       console.error(err)

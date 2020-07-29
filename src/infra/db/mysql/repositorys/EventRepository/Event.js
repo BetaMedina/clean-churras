@@ -10,7 +10,6 @@ class EventRepository {
   }
 
   async read (event) {
-    console.log(event)
     return Event.findByPk(event)
   }
 } 
