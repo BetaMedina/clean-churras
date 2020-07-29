@@ -8,7 +8,8 @@ class UserRepository {
         name: {
           [Op.like]: `%${user}%`
         }
-      } 
+      },
+      attributes: ['name', 'id']
     })
   }
 } 
