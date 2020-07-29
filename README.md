@@ -8,6 +8,8 @@
 - javascript standart style guide
 - token JWT
 - TDD
+- Husky
+- lint-staged
 
 ### Funções:
 
