@@ -38,6 +38,6 @@
 #### Importante
 
 - Configure  as variaveis ambientes do banco, em:
-  -Infra > db > MYSQL > config.js
+  Infra > db > MYSQL > config.js
 
 - O token JWT também está pendente de melhorias, atualmente está rodando com ENUM
