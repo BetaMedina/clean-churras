@@ -23,6 +23,8 @@
 
 - Melhoria nos testes de integração
 - Implementação de de variaveis ambientes
+- Criar o LogError decorator
+- Usar a instancia ja criada do Mongo para salvar Erros da aplicação
 
 ### Como utilizar esse projeto:
 
